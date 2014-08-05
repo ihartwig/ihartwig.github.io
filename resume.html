@@ -1,0 +1,450 @@
+<html>
+<head>
+  <style type="text/css">
+    /**** COLORS ****/
+    /*  cmu-red:        rgb(153, 0, 0);
+        cmu-dark-grey:  rgb(46, 46, 46);
+        cmu-grey:       rgb(70, 70, 70);
+        cmu-light-grey: rgb(212, 212, 212);
+     */
+
+    /**** CSS RESET ****/
+    /* http://meyerweb.com/eric/tools/css/reset/
+     v2.0 | 20110126
+     License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /**** COLUMN STYLING ****/
+    section, header, .section {
+      clear: both;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .col {
+      display: block;
+      float:left;
+      margin: 0;
+    }
+
+    .group:before,
+    .group:after {
+      content:"";
+      display:table;
+    }
+    .group:after {
+      clear:both;
+    }
+    .group {
+        zoom:1; /* For IE 6/7 */
+    }
+
+    .span_5_of_5 {
+      width: 100%;
+    }
+    .span_4_of_5 {
+      width: 80%;
+    }
+    .span_3_of_5 {
+      width: 60%;
+    }
+    .span_2_of_5 {
+      width: 40%;
+    }
+    .span_1_of_5 {
+      width: 20%;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .col {
+        margin: 1% 0 1% 0%;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .span_5_of_5 {
+        width: 100%;
+      }
+      .span_4_of_5 {
+        width: 100%;
+      }
+      .span_3_of_5 {
+        width: 100%;
+      }
+      .span_2_of_5 {
+        width: 100%;
+      }
+      .span_1_of_5 {
+        width: 100%;
+      }
+    }
+
+    /**** RESUME STYLING ****/
+    @media only screen and (min-width: 480px) {
+      .page-boundary {
+        width: 612pt; /* us letter width */
+      }
+    }
+
+    body {
+      font-family:"Helvetica Neue";
+      font-size: 10pt;
+      line-height: 12pt;
+      font-weight: 200;
+      color: rgb(70, 70, 70);
+    }
+
+    .extended {
+      display: none;
+    }
+
+    .listing {
+      position: relative;
+      /*margin: 1pt 0;*/
+      /*border-left: 2pt solid rgb(153, 0, 0);*/
+    }
+    .listing .listing-title {
+      font-size: 11pt;
+      /*line-height: 13.2pt;*/
+      font-weight: 500;
+      color: rgb(46, 46, 46);
+    }
+    .listing .listing-description, span.listing-description {
+      font-style: italic;
+    }
+    .listing a {
+      text-decoration: underline;
+      color: rgb(70, 70, 70);
+    }
+    .listing a:hover {
+      text-decoration: none;
+    }
+    .listing li {
+      list-style-type: square;
+      margin-left: 12pt;
+    }
+
+    h1{
+      color: rgb(153, 0, 0);
+      font-size: 18pt;
+      line-height: 21.6pt;
+      font-weight: 600;
+      font-variant:small-caps;
+    }
+
+    h2 {
+      font-variant:small-caps;
+      background-color: rgb(153, 0, 0);
+      color: rgb(255, 255, 255);
+    }
+
+    h3{
+      font-variant:small-caps;
+      background-color: rgb(212, 212, 212);
+      color: rgb(46, 46, 46);
+    }
+
+    .timeline-date {
+      text-align: right;
+    }
+    .timeline-date p {
+      color: rgb(153, 0, 0);
+      font-style: italic;
+    }
+
+    section .col>p, section .col>div {
+      padding: 0 4pt;
+    }
+    section .col>h2, section .col>h3 {
+      padding: 1pt 4pt;
+    }
+    header h1, header p {
+      padding: 0 4pt;
+    }
+
+    .timeline2:before {
+       content: " ";
+       position: absolute;
+       z-index: -1;
+       top: 0;
+       left: -4pt;
+       right: 0;
+       bottom: 0;
+       width: 4pt;
+       border-left: 2pt solid rgb(153, 0, 0);
+    }
+    .timeline1:after {
+       content: " ";
+       position: absolute;
+       z-index: -1;
+       top: 0;
+       left: -1pt;
+       right: 0;
+       bottom: 0;
+       width: 4pt;
+       border-left: 2pt solid rgb(153, 0, 0);
+    }
+    .timeline-space {
+      position: relative;
+      height: 6pt;
+    }
+    .timeline-extender {
+      position: relative;
+      height: 10pt;
+    }
+
+    .timeline-date-below, .timeline-date-above {
+      position: relative;
+      height: 0;
+    }
+    .timeline-date-below p, .timeline-date-above p {
+      display: block;
+      position: absolute;
+      text-align: right;
+      height: 12pt;
+      width: 50pt;
+      left: -58pt;
+      color: rgb(153, 0, 0);
+      font-style: italic;
+    }
+    .timeline-date-below p {
+      top: 0;
+    }
+    .timeline-date-above p {
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page-boundary">
+
+<header>
+  <div class="col span_1_of_5">&nbsp;</div>
+  <div class="col span_2_of_5">
+    <h1>Ian C. Hartwig</h1>
+    <p>ian.hartwig@gmail.com</p>
+    <p>(248) 825 - 3011</p>
+  </div>
+  <div class="col span_1_of_5">
+    <p>&nbsp;</p>
+    <p>SMC 2928</p>
+    <p>5032 Forbes Ave.</p>
+    <p>Pittsburgh, PA 15289</p>
+  </div>
+  <div class="col span_1_of_5">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>614 Woodlawn Ave.</p>
+    <p>Royal Oak, MI 48073</p>
+  </div>
+</header>
+
+<section>
+  <div class="col span_1_of_5 timeline-date">
+    <h2>Education:</h2>
+  </div>
+  <div class="col span_2_of_5">
+    <h3>Degree</h3>
+    <div class="timeline-space"></div>
+    <div class="timeline-date-below"><p>Present</p></div>
+    <div class="listing timeline2">
+      <h4 class="listing-title">Carnegie Mellon University</h4>
+      <p class="listing-location">Pittsburgh, Pennsylvania</p>
+      <p>&nbsp;</p>
+      <p>B.S. ECE (expected May 2015)</p>
+      <p>M.S. ECE (expected May 2016)</p>
+      <p>&nbsp;</p>
+      <p>Current GPA: 3.79/4.00</p>
+    </div>
+    <div class="timeline-date-above"><p>2011</p></div>
+    <div class="timeline-space"></div>
+  </div>
+  <div class="col span_2_of_5">
+    <h3>Skills</h3>
+    <div class="timeline-space"></div>
+    <div class="listing">
+      <ul>
+        <li>CAD &#8211; <span class="listing-description">Allegro, Altium, Eagle, AutoCAD</span></li>
+        <li>System Simulation &#8211; <span class="listing-description">Spice, System Verilog</span></li>
+        <li>Elec. Lab Equipment &#8211; <span class="listing-description">Oscilloscopes, Signal Generators, Loads, BGA/SMT Soldering</span></li>
+        <li>Basic Machining &#8211; <span class="listing-description">Mill, Lathe, Laser Cutting</span></li>
+        <li>Programming &#8211; <span class="listing-description">C, Python, Javascript, Java</span></li>
+        <li>Web &#8211; <span class="listing-description">HTML, CSS, PHP, XML, MySQL</span></li>
+      </ul>
+    </div>
+    <div class="timeline-space"></div>
+  </div>
+</section>
+
+<section>
+  <div class="col span_1_of_5 timeline-date">
+    <h2>Experience:</h2>
+  </div>
+  <div class="col span_2_of_5">
+    <h3>Industry</h3>
+    <div class="timeline-space"></div>
+    <div class="timeline-date-below"><p>Present</p></div>
+    <div class="listing timeline2">
+      <h4 class="listing-title">Hardware Engineering Intern</h4>
+      <p class="listing-location">iOS Device Accessories, Apple Inc.</p>
+      <p class="listing-description">Integrated electrical systems at the PCB level for several close-to-market products. Designed necessary circuits, conducted layout reviews, and verified designs. Spearheaded test equipment automation standards in Python to save engineering time.</p>
+    </div>
+    <div class="timeline-date-below"><p>2014</p></div>
+    <div class="timeline-space"></div>
+    <div class="timeline-extender timeline2"></div>
+    <div class="timeline-space timeline2"></div>
+    <div class="listing timeline1 timeline2">
+      <h4 class="listing-title">Software Engineering Intern</h4>
+      <p class="listing-location">Network Systems, Google Inc.</p>
+      <p class="listing-description">Built routing preferences interface for Google&#39;s content distribution network (CDN). C++/Python servers and with HTML/AngularJS interface.</p>
+      <p class="listing-moreinfo"><a href="http://peering.google.com">peering.google.com</a></p>
+    </div>
+    <div class="timeline-space timeline2"></div>
+    <div class="listing timeline2">
+      <h4 class="listing-title">Intro. Computer Systems (15-213) TA</h4>
+      <p class="listing-location">CS Department, CMU</p>
+      <p class="listing-description">Lead C &amp; systems programming recitations for 30 students. Developed exams and held office hours for curious, struggling, or stuck students.</p>
+    </div>
+    <div class="timeline-date-below"><p>2013</p></div>
+    <div class="timeline-space"></div>
+    <div class="listing timeline2">
+      <h4 class="listing-title">Test Engineer Intern</h4>
+      <p class="listing-location">Seegrid Corporation, Pittsburgh, PA</p>
+      <p class="listing-description">Tested software and hardware on linux-based industrial robots. Developed real-time messaging debugger in Python/javascript with RabbitMQ, SockJS, socket.io, and node.js.</p>
+    </div>
+    <div class="timeline-space"></div>
+    <div class="listing extended">
+      <h4 class="listing-title">Student Administrative Assistant</h4>
+      <p class="listing-location">Data Storage Systems Center, ECE Dept., CMU</p>
+      <p class="listing-description">Managed business-critical MySQL/Access database.</p>
+    </div>
+  </div>
+  <div class="col span_2_of_5">
+    <h3>Volunteer/Extra-Curricular</h3>
+    <div class="timeline-space"></div>
+    <div class="listing timeline1 timeline2">
+      <h4 class="listing-title">Activities Board (AB) Coffeehouse Co-chair</h4>
+      <p class="listing-location">CMU</p>
+      <p class="listing-description">Act as venue booking agent for mid-sized ($5,000-20,000) concerts at CMU.</p>
+    </div>
+    <div class="timeline-space timeline2"></div>
+    <div class="listing timeline1 timeline2">
+      <h4 class="listing-title">Gadgetry (16-250) TA</h4>
+      <p class="listing-location">Robotics Institute, CMU</p>
+      <p class="listing-description">Advised and debugged student projects in interdisciplinary embedded circuits and PCB-design course; many students had no prior experience.</p>
+    </div>
+    <div class="timeline-space timeline1 timeline2"></div>
+    <div class="listing timeline1 timeline2">
+      <h4 class="listing-title">Solar Splash 2013</h4>
+      <p class="listing-location">CMU</p>
+      <p class="listing-description">Led hardware design and construction of data logging and control platform for team&#39;s solar boat. Leveraged differential signaling and distinct core functions processor for increased reliability.</p>
+    </div>
+    <div class="timeline-space timeline2"></div>
+    <div class="listing timeline2">
+      <h4 class="listing-title">AB Tech Executive Board</h4>
+      <p class="listing-location">CMU</p>
+      <p class="listing-description">Live audio engineer and entertainment electrical designer for student-run sound &amp; lighting company. Mix shows of 2-64 channels, implement 100-600A 3-phase AC power distribution systems, approve smart capital purchases, and train new members.</p>
+    </div>
+    <div class="timeline-space"></div>
+    <div class="listing extended">
+      <h4 class="listing-title">Robotics Club Senior Member</h4>
+      <p class="listing-location">CMU</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="col span_1_of_5 timeline-date">
+    <h2>Projects:</h2>
+  </div>
+  <div class="col span_2_of_5">
+    <h3>Academic</h3>
+    <div class="timeline-space"></div>
+    <div class="timeline-date-below"><p>2014</p></div>
+    <div class="listing timeline1">
+      <h4 class="listing-title">Gravel Kernel</h4>
+      <p class="listing-location">Embedded Systems (18-349) Projects</p>
+      <p class="listing-description">Wrote a real time multi-process kernel on a basic ARM platform (Gumstix) with 2 peers.</p>
+    </div>
+    <div class="timeline-space"></div>
+    <div class="listing timeline1">
+      <h4 class="listing-title">Map-Reduce Framework</h4>
+      <p class="listing-location">Distributed Systems (15-440) Projects</p>
+      <p class="listing-description">Designed and built a Java framework for executing map-reduce jobs across the Andrew cluster. Included construction of node controller, clients, and distributed file system.</p>
+    </div>
+    <div class="timeline-date-above"><p>2013</p></div>
+    <div class="timeline-space"></div>
+    <div class="listing extended">
+      <h4 class="listing-title">Proxy Lab, Malloc Lab</h4>
+      <p class="listing-location">Intro. Computer Systems (15/18-213) Projects</p>
+      <p class="listing-description">Designed and implemented multi-threaded, caching HTTP proxy server. Re-wrote and improved speed of GNU malloc().</p>
+    </div>
+  </div>
+  <div class="col span_2_of_5">
+    <h3>Extra-Curricular</h3>
+    <div class="timeline-space"></div>
+    <div class="listing timeline1">
+      <h4 class="listing-title">Robotic Buggy</h4>
+      <p class="listing-description">Building a self-guiding, gravity-powered vehicle based on RTK-GPS navigation with small group from the CMU Robotics Club. Primary designer for the radio data link behind RTK-GPS.</p>
+    </div>
+    <div class="timeline-space"></div>
+    <div class="listing timeline1">
+      <h4 class="listing-title">Assassins SMS Gateway</h4>
+      <p class="listing-description">Led small group to develop SMS interface and admin panel for assassins game using the Tropo API and Django python framework.</p>
+      <p class="listing-moreinfo"><a href="http://www.github.com/ihartwig/camassassins">github.com/ihartwig/camassassins</a></p>
+    </div>
+    <div class="timeline-space"></div>
+    <div class="listing extended">
+      <h4 class="listing-title">WifiWatt - Build18 2013</h4>
+      <p class="listing-description">Developed network of real-time power control nodes with web panel. AVR &amp; Raspberry Pi embedded systems w/ RabbitMQ &amp; websocket networking. Won Outstanding Project award.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
