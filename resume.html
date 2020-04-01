@@ -234,7 +234,8 @@
       padding: 0 4pt;
     }
 
-    .timeline2:before {
+    /* use before and after pseudo elems to draw borders without box impact */
+    .timeline2:after {
        content: " ";
        position: absolute;
        z-index: -1;
@@ -245,7 +246,7 @@
        width: 4pt;
        border-left: 2pt solid rgb(153, 0, 0);
     }
-    .timeline1:after {
+    .timeline1:before {
        content: " ";
        position: absolute;
        z-index: -1;
@@ -255,6 +256,18 @@
        bottom: 0;
        width: 4pt;
        border-left: 2pt solid rgb(153, 0, 0);
+    }
+    /* add ... intro line only for timeline2. not compat with timeline 1 */
+    .timeline2-present:before {
+       content: " ";
+       position: absolute;
+       z-index: 0;
+       top: 0;
+       left: -2pt;
+       right: 0;
+       height: 16pt;
+       width: 4pt;
+       border-left: 2pt dotted white;
     }
     .timeline-space {
       position: relative;
@@ -426,7 +439,7 @@
     <h3>Industry</h3>
     <div class="timeline-space"></div>
 
-    <div class="timeline-date-below"><p>Present<br />(1&frac12; years)</p></div>
+    <div class="timeline-date-below"><p>Mar 2020<br />(1&frac12; years)</p></div>
     <div class="listing timeline2">
       <h4 class="listing-title">Platform Hardware Engineer</h4>
       <p class="listing-location">Embark Trucks, San Francisco, CA</p>
@@ -524,7 +537,7 @@
   <div class="col span_3_of_9">
     <h3>Projects</h3>
     <div class="timeline-space"></div>
-    <div class="listing timeline2">
+    <div class="listing timeline2 timeline2-present">
       <h4 class="listing-title">FIRST Robotics Mentor</h4>
       <p class="listing-location">FRC 5026, Burlingame, CA</p>
       <p class="listing-description">Guide dynamic group of 30+ high school students in mechanical and electrical design of 150 lb. robot in 6 weeks</p>
